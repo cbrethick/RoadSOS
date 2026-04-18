@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #131318;
+    --panel: #1c1c24;
+    --panel-border: #2a292f;
+    --accent: #E63946;
+    --accent-glow: rgba(230, 57, 70, 0.4);
+    --text-primary: #e4e1e9;
+    --text-secondary: #a09ca8;
+    --secondary: #4fdbcc;
+    --tertiary: #ffba27;
+  }
+
+  body {
+    @apply bg-surface text-on-surface font-sans;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Scrollbars */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: #2a292f; border-radius: 10px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #a09ca8; }
+
+  /* Glow effects */
+  .glow-red { filter: drop-shadow(0 0 8px rgba(230, 57, 70, 0.6)); }
+  .shadow-red { box-shadow: 0 0 15px rgba(230, 57, 70, 0.4); }
+  .shadow-teal { box-shadow: 0 0 15px rgba(79, 219, 204, 0.4); }
+
+  /* Emergency pulse animations */
+  .pulse-slow { 
+    animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; 
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* Typing dots */
+  .typing-dot {
+    @apply w-2 h-2 rounded-full bg-[#E63946];
+  }
+  
+  @keyframes typing {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-6px); }
+  }
+
+  .typing-dot:nth-child(1) { animation: typing 1.2s infinite; }
+  .typing-dot:nth-child(2) { animation: typing 1.2s infinite 0.2s; }
+  .typing-dot:nth-child(3) { animation: typing 1.2s infinite 0.4s; }
+
+  /* Chat message fade-in */
+  .msg-appear { 
+    animation: fadeSlideUp 0.3s ease forwards; 
+  }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+.font-sans { font-family: 'Inter', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }

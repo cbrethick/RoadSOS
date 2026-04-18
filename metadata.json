@@ -1,0 +1,8 @@
+{
+  "name": "RoadSOS",
+  "description": "A high-stakes emergency response portal for rapid distress management, featuring tactical incident triage, real-time service tracking, and verified helpline indices.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": []
+}
